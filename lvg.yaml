@@ -1,0 +1,19 @@
+---
+-
+   name: create vg and lv from single or multiple pv devices
+   hosts: localhost
+   tasks:
+       -
+#         name: create vg and lv from single or multiple pv devices
+         lvg:
+           vg: datavg
+           pvs: /dev/sda10
+       -
+#         name: create vg and lv from single or multiple pv devices
+         lvol:
+            vg: datavg
+            lv: testlv
+            size: 100%FREE
+
+
+

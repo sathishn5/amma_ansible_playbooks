@@ -1,0 +1,14 @@
+---
+-
+    name : verifiy for os version
+    hosts: localhost
+    gather_facts: no
+    tasks:
+        -
+           name: verify
+           shell: cat /etc/redhat-release
+           register: os
+        -
+           name: print
+           debug:
+               msg: "{{os}}"

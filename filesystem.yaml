@@ -1,0 +1,10 @@
+---
+-
+   name: create filesystem
+   hosts: localhost
+   tasks:
+       -
+          name: create filesystem
+          filesystem:
+                   device: /dev/mapper/datavg-datalv
+                   fstype: ext4

@@ -1,0 +1,15 @@
+---
+-
+    name: gather ip address from localhost
+    hosts: all
+    tasks:
+        -
+           name: gather ip address and register to variable
+           debug:
+               msg: "{{ansible_wlp2s0.ipv4.address}}"
+           register: ipaddress
+        -
+           name: print ipaddr
+           copy:
+              content: "{{ipaddress}}"
+              dest: /root/ipaddress

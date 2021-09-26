@@ -1,0 +1,8 @@
+---
+name: 'valgrind consuming more space'
+hosts: all
+gather_facts: no
+tasks:
+    -
+      name: 'valgrind uninstallation'
+      command: yum remove -y `rpm -qa | grep gcc-toolset`

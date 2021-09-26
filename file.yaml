@@ -1,0 +1,12 @@
+---
+- name: name of the first play
+  hosts: all
+  tasks:
+     -
+        name: name of the first task
+        command: file /etc/resolv.conf
+        register: filestat
+     - 
+        name: name of the second task
+        debug: 
+           msg: the file is present "{{filestat}}"

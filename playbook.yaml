@@ -1,0 +1,14 @@
+---
+- name: this is first play
+  hosts: all
+  gather_facts: no
+  tasks:
+          - name: useradd
+            user:
+               name: sathish
+#              password: password  
+#####above password not working since it should be crypted format######
+          - name: 'password set'
+            shell: echo "password" | passwd --stdin sathish
+          - name: 'adding sudoers entry'
+            shell: echo "sathish ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

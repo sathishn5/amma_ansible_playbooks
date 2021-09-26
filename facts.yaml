@@ -1,0 +1,10 @@
+---
+- name: 'gather facts we didnt set gather_facts to false by default it will gather'
+  hosts: all
+  tasks:
+      - name: 'gather facts and print kernel'
+        debug:
+             msg: "{{ansible_kernel}}"
+      - name: 'gather facts and print ip'
+        debug:
+             msg: "{{ansible_default_ipv4.address}}"

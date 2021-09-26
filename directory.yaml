@@ -1,0 +1,12 @@
+---
+- name: 'name of the directory'
+  hosts: all
+  gather_facts: false
+  tasks:
+      - name: 'directory create'
+        file:
+            state: directory
+            path: /data
+            owner: sathish
+            group: sathish
+            mode: 0777

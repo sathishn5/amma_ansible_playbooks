@@ -1,0 +1,17 @@
+---
+-
+    name: check inventory group if met run
+    hosts: all
+    gather_facts: no
+    tasks:
+        -
+           name: install vsftpd
+           yum:
+             name: vsftpd
+             state: present
+        -
+           name: check inventory group
+           service:
+                 name: vsftpd
+                 state: restarted
+           when: inventory_hostname in groups['dev']

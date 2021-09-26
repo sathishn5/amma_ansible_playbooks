@@ -1,0 +1,30 @@
+---
+-
+    name: install vsftpd,httpd and restart apache
+    hosts: all
+    tasks:
+        -
+            name: install httpd,vsftpd
+            yum:
+              name:
+                 - vsftpd
+                 - httpd
+            notify:
+                 - restart vsftpd
+        -   name: copy index.html
+            copy:
+               src: /root/index.html1
+               dest: /var/www/html/index.html
+            notify:
+                 - restart httpd
+    handlers:
+           -
+               name: restart vsftpd
+               service:
+                     name: vsftpd
+                     state: restarted
+           -
+               name: restart httpd
+               service:
+                     name: httpd
+                     state: restarted

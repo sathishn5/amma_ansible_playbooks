@@ -1,0 +1,10 @@
+---
+- name: 'setup kubernetes master and worker nodes'
+  hosts: all
+  gather_facts: no
+  tasks:
+    -
+       name: 'setup kubernetes master host file'
+       shell: echo "192.168.0.107 sathish sathish.sathish86.com" >> /etc/hosts;echo "192.168.0.155 worker1 worker1.sathish86.com" >> /etc/hosts
+    -  name: 'install docker-ce package'
+       shell: dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo -y

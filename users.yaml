@@ -1,0 +1,17 @@
+---
+-
+   name: create user
+   hosts: all
+   tasks:
+       -
+          name: create group
+          group:
+              name: test
+              gid: 60000
+       -
+          name: create user
+          user:
+             name: test
+             uid: 60000
+             group: test
+             home: /test

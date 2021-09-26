@@ -1,0 +1,8 @@
+---
+- name: create resource group
+  hosts: all
+  tasks:
+          - name: name of the resource group
+            azure.azcollection.azure_rm_resourcegroup:
+                     name: sathishrg3
+                     location: westus
